@@ -19,6 +19,7 @@ I adapted the original schematic with a few additional circuits:
 - A dedicated heating status LED.
 - An RGB LED to indicate the reflow process status.
 - A transistor circuit to control the cooling fan.
+- An active buzzer in stead of a passive one
 
 For the controller, I used an **LGT8F328P LQFP32 MiniEVB (Nano Style)** as an alternative to the Arduino Nano.
 
