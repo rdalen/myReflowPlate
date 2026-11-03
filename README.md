@@ -1,34 +1,93 @@
 # myReflowPlate
 
-A DIY controller for a Hot Plate, based on this  [Elektor article](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate?utm_source=Klaviyo&utm_medium=email&utm_campaign=Draadloze%20ESP32-weegschalen%252C%20Van%20PAL%20tot%20FPGA%252C%2050-watt%20solar-laadregelaar%20en%20meer&_kx=gfqaxOySi4_My8IVnZu0zz7oQaEuES7QDWbDh4O1UtEVefTPhj8f0vZ4BP8w0ZLT.QQ33pb).
+A DIY controller for a hot plate, based on the [Elektor Reflow Plate article](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate).
 
-**>>picture of the real model<<**
-<p align="center"><i>ReflowPlate controller</i></p>
+The project started with the original Elektor design. I adapted the hardware and firmware to add some extra functionality and support both leaded and low-temperature solder paste.
 
-For this project, I adapted the original schematic with; 
-- a "Heating LED"
-- a Refow proces RGB LED
-- a transistor for the cooling fan
+<p align="center">
+  <img width="75%" src="YOUR_REAL_MODEL_IMAGE" alt="myReflowPlate controller"/>
+  <br/>
+  <i>myReflowPlate controller</i>
+</p>
 
-For the controller i used the LGT8F328P LQFP32 MiniEVB (Nano Style) as alternative for the Arduino Nano
+## Hardware
 
-<img width="75%" alt="image" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
+### Controller modifications
+
+I adapted the original schematic with a few additional circuits:
+
+- A dedicated heating status LED.
+- An RGB LED to indicate the reflow process status.
+- A transistor circuit to control the cooling fan.
+
+For the controller, I used an **LGT8F328P LQFP32 MiniEVB (Nano Style)** as an alternative to the Arduino Nano.
+
+<img width="75%" alt="ReflowPlate schematic" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
 
 <p align="center"><i>ReflowPlate schematic</i></p>
 
-I used the [gerber files](https://www.elektormagazine.nl/magazine/elektor-318/62355) from the original Elektor PCB design, which I used to order the PCBs, and added the extra circuits to the PCBs.
+### PCB
 
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
-<p align="center"><i>ReflowPlate controller PCB</i></p>
+I used the [Gerber files from the original Elektor PCB design](https://www.elektormagazine.nl/magazine/elektor-318/62355) as a starting point.
 
-The laser cut enclosure is designed with [OnShape](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1)
+I ordered the original PCB layout and added the additional circuits to accommodate the controller modifications.
 
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/77f5bb1a-195e-42f8-9a6c-986c2d47eecd" />
-<p align="center"><i>ReflowPlate controller controller</i></p>
+<img width="60%" alt="ReflowPlate controller PCB" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
 
-The [arduino sketch](https://www.elektormagazine.nl/magazine/elektor-318/62355) can be found on the on the Elektor site
-Because I use low temperature solderpaste, I added a low temperature profile next to the leaded solder profile
-The VS Code sketch can be found in the repository
+<p align="center"><i>Modified ReflowPlate controller PCB</i></p>
 
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/d5fbf348-5f41-424d-be0d-b32d96703110" />
-<p align="center"><i>ReflowPlate profiles</i></p>
+### Enclosure
+
+The enclosure is laser-cut and designed using [Onshape](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1).
+
+<img width="60%" alt="ReflowPlate enclosure" src="https://github.com/user-attachments/assets/77f5bb1a-195e-42f8-9a6c-986c2d47eecd" />
+
+<p align="center"><i>ReflowPlate controller enclosure</i></p>
+
+## Firmware
+
+The original Arduino sketch is available from the [Elektor project page](https://www.elektormagazine.nl/magazine/elektor-318/62355).
+
+I used this sketch as the starting point and adapted it for my hardware. The updated firmware is developed in **VS Code using PlatformIO** and is included in this repository.
+
+### Main features
+
+- Rotary encoder for menu navigation and temperature adjustment.
+- Multiple soldering profiles.
+- Dedicated preheater mode with adjustable temperature.
+- PID-based temperature control.
+- Active cooling using a controlled fan.
+- RGB LED status indication.
+- Buzzer feedback for user interaction.
+- Thermocouple fault detection, with heating interruption and an error message.
+
+### Soldering profiles
+
+The firmware includes two reflow profiles:
+
+- **LOW TEMP** – for SN42Bi58 low-temperature solder paste (melting point approximately 138 °C).
+- **LEADED** – for conventional leaded solder paste.
+
+The low-temperature profile was added because I use low-temperature solder paste in some of my projects.
+
+<p align="center">
+  <img width="90%" alt="ReflowPlate soldering profiles" src="https://github.com/user-attachments/assets/d5fbf348-5f41-424d-be0d-b32d96703110" />
+  <br/>
+  <i>LOW TEMP and LEADED soldering profiles</i>
+</p>
+
+The profiles define temperature setpoints over time. Actual temperatures may differ depending on the hot plate, PCB, component placement and thermal characteristics.
+
+## Repository contents
+
+The repository contains the PlatformIO firmware project and the related project resources.
+
+## References
+
+- [Original Elektor article – A fan for the Mini Reflow Plate](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate)
+- [Elektor project files and original Arduino sketch](https://www.elektormagazine.nl/magazine/elektor-318/62355)
+- [Onshape enclosure design](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1)
+
+---
+
+*This is a personal DIY project, developed as an adaptation of the original Elektor design.*
