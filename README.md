@@ -54,8 +54,8 @@ I used this sketch as the starting point and adapted it for my hardware. The upd
 ### Main features
 
 - Rotary encoder for menu navigation and temperature adjustment.
-- Multiple soldering profiles.
-- Dedicated preheater mode with adjustable temperature.
+- Two soldering profiles.
+- Preheater mode with adjustable temperature.
 - PID-based temperature control.
 - Active cooling using a controlled fan.
 - RGB LED status indication.
