@@ -85,7 +85,8 @@ The repository contains the PlatformIO firmware project and the related project 
 
 ## References
 
-- [Original Elektor article – A fan for the Mini Reflow Plate](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate)
+- The lead article appeared in the Elektor november/december 2023 on p.120
+- [The related article (A fan for the Mini Reflow Plate - 240198-01) appeared in the November/December 2025 issue of Elektor](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate)
 - [Elektor project files and original Arduino sketch](https://www.elektormagazine.nl/magazine/elektor-318/62355)
 - [Onshape enclosure design](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1)
 
