@@ -4,6 +4,9 @@ A DIY controller for a hot plate, based on the [Elektor Reflow Plate article](ht
 
 The project started with the original Elektor design. I adapted the hardware and firmware to add some extra functionality and support both leaded and low-temperature solder paste.
 
+The standard neodymium magnets that came with the hotplate lose their magnetism as early as 80 °C, which has caused irreversible damage.
+So I screwed them in place on an old cooling plate from a faulty Power Supply.
+
 <p align="center">
   <img width="75%" src="YOUR_REAL_MODEL_IMAGE" alt="myReflowPlate controller"/>
   <br/>
@@ -16,12 +19,12 @@ The project started with the original Elektor design. I adapted the hardware and
 
 I adapted the original schematic with a few additional circuits:
 
-- A dedicated heating status LED.
+- A heating status LED.
 - An RGB LED to indicate the reflow process status.
 - A transistor circuit to control the cooling fan.
 - Replaced the passive buzzer with an active buzzer.
 
-For the controller, I used a cheap **LGT8F328P LQFP32 MiniEVB (Nano Style)** (see [this](https://wolles-elektronikkiste.de/en/lgt8f328p-lqfp32-boards) post) as an alternative to the Arduino Nano.
+For the controller, I used a cheap Nano style **LGT8F328P LQFP32 MiniEVB** (see [this](https://wolles-elektronikkiste.de/en/lgt8f328p-lqfp32-boards) post) as an alternative to the Arduino Nano.
 
 <img width="75%" alt="ReflowPlate schematic" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
 
@@ -34,8 +37,14 @@ I used the [Gerber files from the original Elektor PCB design](https://www.elekt
 I ordered the original PCB layout and added the additional circuits to accommodate the controller modifications.
 
 <img width="60%" alt="ReflowPlate controller PCB" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
-
 <p align="center"><i>Original ReflowPlate controller PCB</i></p>
+
+---
+
+<img width="49%" alt="image" src="https://github.com/user-attachments/assets/d8567c9e-c781-468e-a535-424abc1a9211" />
+<img width="43%" alt="image" src="https://github.com/user-attachments/assets/217622d7-3abb-4f30-b1c0-c05ab8a9a377" />
+<p align="center"><i>The PCB with my additions</i></p>
+
 
 ### Enclosure
 
