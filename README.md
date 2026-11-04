@@ -35,7 +35,7 @@ I ordered the original PCB layout and added the additional circuits to accommoda
 
 <img width="60%" alt="ReflowPlate controller PCB" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
 
-<p align="center"><i>Modified ReflowPlate controller PCB</i></p>
+<p align="center"><i>Original ReflowPlate controller PCB</i></p>
 
 ### Enclosure
 
