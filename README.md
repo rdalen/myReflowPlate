@@ -25,7 +25,7 @@ For the controller, I used a cheap **LGT8F328P LQFP32 MiniEVB (Nano Style)** (se
 
 <img width="75%" alt="ReflowPlate schematic" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
 
-<p align="center"><i>ReflowPlate schematic</i></p>
+<p align="center"><i>Modified ReflowPlate schematic</i></p>
 
 ### PCB
 
