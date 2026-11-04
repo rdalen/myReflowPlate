@@ -21,7 +21,7 @@ I adapted the original schematic with a few additional circuits:
 - A transistor circuit to control the cooling fan.
 - Replaced the passive buzzer with an active buzzer.
 
-For the controller, I used an **LGT8F328P LQFP32 MiniEVB (Nano Style)** as an alternative to the Arduino Nano.
+For the controller, I used a cheap **LGT8F328P LQFP32 MiniEVB (Nano Style)** as an alternative to the Arduino Nano.
 
 <img width="75%" alt="ReflowPlate schematic" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
 
