@@ -2,14 +2,14 @@
 
 A DIY controller for a hot plate, based on the [Elektor Reflow Plate article](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate).
 
-The project started with the original Elektor design. I adapted the hardware and firmware to add some extra functionality and support both leaded and low-temperature solder paste.
+The project started with the original Elektor design. I adapted both the hardware and firmware to add extra functionality and support different soldering profiles for leaded and low-temperature solder paste.
 
-The standard neodymium magnets that came with the hotplate lose their magnetism as early as 80 °C, which has caused irreversible damage.
-So I screwed them in place on an old cooling plate from a faulty Power Supply.
+One issue I encountered was that the standard neodymium magnets supplied with the hot plate started losing their magnetism permanently at temperatures as low as 80 °C. The original mounting feet were modified by drilling larger holes and using longer screws to secure them to an old cooling plate salvaged from a faulty power supply.
 
 <p align="center">
-<img width="75%" alt="image" src="https://github.com/user-attachments/assets/955d1253-36cf-41d0-a430-e6ea3b0ce15a" />
-<p align="center"><i>My ReflowPlate</i></p>
+  <img width="75%" alt="myReflowPlate" src="https://github.com/user-attachments/assets/955d1253-36cf-41d0-a430-e6ea3b0ce15a" />
+  <br/>
+  <i>My ReflowPlate</i>
 </p>
 
 ## Hardware
@@ -18,12 +18,12 @@ So I screwed them in place on an old cooling plate from a faulty Power Supply.
 
 I adapted the original schematic with a few additional circuits:
 
-- A heating status LED.
+- A dedicated heating status LED.
 - An RGB LED to indicate the reflow process status.
 - A transistor circuit to control the cooling fan.
-- Replaced the passive buzzer with an active buzzer.
+- An active buzzer, replacing the original passive buzzer.
 
-For the controller, I used a cheap Nano style **LGT8F328P LQFP32 MiniEVB** (see [this](https://wolles-elektronikkiste.de/en/lgt8f328p-lqfp32-boards) post) as an alternative to the Arduino Nano.
+For the controller, I used an inexpensive Nano-style **LGT8F328P LQFP32 MiniEVB** as an alternative to the Arduino Nano. See [this article](https://wolles-elektronikkiste.de/en/lgt8f328p-lqfp32-boards) for more information about this board.
 
 <img width="75%" alt="ReflowPlate schematic" src="https://github.com/user-attachments/assets/2c7f4d5e-f112-47a4-b8f3-24611b08fae5" />
 
@@ -33,27 +33,32 @@ For the controller, I used a cheap Nano style **LGT8F328P LQFP32 MiniEVB** (see 
 
 I used the [Gerber files from the original Elektor PCB design](https://www.elektormagazine.nl/magazine/elektor-318/62355) as a starting point.
 
-I ordered the original PCB layout and added the additional circuits to accommodate the controller modifications.
+I ordered the original PCB layout and added the additional circuits to accommodate my controller modifications.
 
-<img width="60%" alt="ReflowPlate controller PCB" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
+<img width="60%" alt="Original ReflowPlate controller PCB" src="https://github.com/user-attachments/assets/5dd8b555-f988-4740-bc97-8e442bbef233" />
+
 <p align="center"><i>Original ReflowPlate controller PCB</i></p>
 
----
+The following pictures show the PCB with my additional circuits.
 
-<img width="49%" alt="image" src="https://github.com/user-attachments/assets/d8567c9e-c781-468e-a535-424abc1a9211" />
-<img width="43%" alt="image" src="https://github.com/user-attachments/assets/217622d7-3abb-4f30-b1c0-c05ab8a9a377" />
-<p align="center"><i>The PCB with my additions</i></p>
-
+<p align="center">
+  <img width="49%" alt="Modified ReflowPlate PCB" src="https://github.com/user-attachments/assets/d8567c9e-c781-468e-a535-424abc1a9211" />
+  <img width="43%" alt="Modified ReflowPlate PCB detail" src="https://github.com/user-attachments/assets/217622d7-3abb-4f30-b1c0-c05ab8a9a377" />
+  <br/>
+  <i>The PCB with my additions</i>
+</p>
 
 ### Enclosure
 
 The enclosure is laser-cut and designed using [Onshape](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1).
 
 <img width="60%" alt="ReflowPlate enclosure" src="https://github.com/user-attachments/assets/77f5bb1a-195e-42f8-9a6c-986c2d47eecd" />
+
 <p align="center"><i>ReflowPlate controller enclosure</i></p>
 
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/b0983567-3cd5-4fcd-8fd6-6321c63ee2d2" />
-<p align="center"><i>The assembly</i></p>
+<img width="60%" alt="ReflowPlate assembly" src="https://github.com/user-attachments/assets/b0983567-3cd5-4fcd-8fd6-6321c63ee2d2" />
+
+<p align="center"><i>The complete assembly</i></p>
 
 ## Firmware
 
@@ -70,10 +75,9 @@ I used this sketch as the starting point and adapted it for my hardware. The upd
 - Active cooling using a controlled fan.
 - RGB LED status indication.
 - Buzzer feedback for user interaction.
-- Thermocouple fault detection, with heating interruption and an error message.
+- Thermocouple fault detection, including heating interruption and an error message.
 
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/6ceb8deb-f187-4501-b507-428d1655def5" />
-
+<img width="60%" alt="ReflowPlate controller display" src="https://github.com/user-attachments/assets/6ceb8deb-f187-4501-b507-428d1655def5" />
 
 ### Soldering profiles
 
@@ -82,7 +86,7 @@ The firmware includes two reflow profiles:
 - **LOW TEMP** – for SN42Bi58 low-temperature solder paste (melting point approximately 138 °C).
 - **LEADED** – for conventional leaded solder paste.
 
-The low-temperature profile was added because I use low-temperature solder paste in some of my projects.
+I added the low-temperature profile because I use low-temperature solder paste for some of my projects.
 
 <p align="center">
   <img width="90%" alt="ReflowPlate soldering profiles" src="https://github.com/user-attachments/assets/d5fbf348-5f41-424d-be0d-b32d96703110" />
@@ -94,14 +98,20 @@ The profiles define temperature setpoints over time. Actual temperatures may dif
 
 ## Repository contents
 
-The repository contains the PlatformIO firmware project and the related project resources.
+The repository is organized into the following main folders:
+
+- `KiCad/` – Hardware design files, including schematics and PCB layout.
+- `src/` – Arduino firmware source code.
+- `include/` and `lib/` – PlatformIO project resources, if required.
+
+The root folder also contains the PlatformIO configuration file and project documentation.
 
 ## References
 
-- The lead article appeared in the Elektor november/december 2023 on p.120
-- [The related article (A fan for the Mini Reflow Plate - 240198-01) appeared in the November/December 2025 issue of Elektor](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate)
-- [Elektor project files and original Arduino sketch](https://www.elektormagazine.nl/magazine/elektor-318/62355)
-- [Onshape enclosure design](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1)
+- The original Reflow Plate article appeared in the November/December 2023 issue of Elektor (page 120).
+- [A fan for the Mini Reflow Plate – 240198-01](https://www.elektormagazine.nl/articles/een-ventilator-voor-de-minireflow-plate), published in the November/December 2025 issue of Elektor.
+- [Elektor project files and original Arduino sketch](https://www.elektormagazine.nl/magazine/elektor-318/62355).
+- [Onshape enclosure design](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1).
 
 ---
 
