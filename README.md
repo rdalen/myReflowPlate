@@ -8,9 +8,8 @@ The standard neodymium magnets that came with the hotplate lose their magnetism 
 So I screwed them in place on an old cooling plate from a faulty Power Supply.
 
 <p align="center">
-  <img width="75%" src="YOUR_REAL_MODEL_IMAGE" alt="myReflowPlate controller"/>
-  <br/>
-  <i>myReflowPlate controller</i>
+<img width="75%" alt="image" src="https://github.com/user-attachments/assets/955d1253-36cf-41d0-a430-e6ea3b0ce15a" />
+<p align="center"><i>My ReflowPlate</i></p>
 </p>
 
 ## Hardware
@@ -51,8 +50,10 @@ I ordered the original PCB layout and added the additional circuits to accommoda
 The enclosure is laser-cut and designed using [Onshape](https://cad.onshape.com/documents/f9842e5a0607c10c799405a4/w/c9b0513c447002e5fd45f673/e/24479710e199dccfacd098f1).
 
 <img width="60%" alt="ReflowPlate enclosure" src="https://github.com/user-attachments/assets/77f5bb1a-195e-42f8-9a6c-986c2d47eecd" />
-
 <p align="center"><i>ReflowPlate controller enclosure</i></p>
+
+<img width="60%" alt="image" src="https://github.com/user-attachments/assets/b0983567-3cd5-4fcd-8fd6-6321c63ee2d2" />
+<p align="center"><i>The assembly</i></p>
 
 ## Firmware
 
@@ -70,6 +71,9 @@ I used this sketch as the starting point and adapted it for my hardware. The upd
 - RGB LED status indication.
 - Buzzer feedback for user interaction.
 - Thermocouple fault detection, with heating interruption and an error message.
+
+<img width="60%" alt="image" src="https://github.com/user-attachments/assets/6ceb8deb-f187-4501-b507-428d1655def5" />
+
 
 ### Soldering profiles
 
