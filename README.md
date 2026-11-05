@@ -100,7 +100,8 @@ The profiles define temperature setpoints over time. Actual temperatures may dif
 
 The repository is organized into the following main folders:
 
-- `KiCad/` – Hardware design files, including schematics and PCB layout.
+- `lasercut files/` – The enclosure design as svg.
+- `kicad files/` – Hardware design files, including schematics and PCB layout.
 - `src/` – Arduino firmware source code.
 - `include/` and `lib/` – PlatformIO project resources, if required.
 
