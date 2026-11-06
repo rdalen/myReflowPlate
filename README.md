@@ -102,10 +102,7 @@ The repository is organized into the following main folders:
 
 - `kicad files/` – Hardware design files, including schematics and PCB layout.
 - `lasercut files/` – The enclosure design as svg.
-- `src/` – Arduino firmware source code.
-- `include/` and `lib/` – PlatformIO project resources, if required.
-
-The root folder also contains the PlatformIO configuration file and project documentation.
+- `src/` – The VS Code PlatformIO firmware source code.
 
 ## References
 
